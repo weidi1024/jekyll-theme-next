@@ -3,4 +3,5 @@ title: about
 layout: page
 ---
 
-Building...
+
+联系：weidi1024@126.com

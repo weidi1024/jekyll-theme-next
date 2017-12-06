@@ -117,10 +117,10 @@ index_with_subtitle: false
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  #categories: /categories/
-  about: /about/
+  categories: /categories/
   archives: /archives/
   tags: /tags/
+  about: /about/
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
@@ -151,8 +151,8 @@ menu_icons:
 
 # Schemes
 #scheme: Muse
-#scheme: Mist
-scheme: Pisces
+scheme: Mist
+#scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -179,7 +179,8 @@ font:
   # Fallback to `global` font settings.
   headings:
     external: true
-    family:
+    family: 
+    size: 5
 
   # Font settings for posts
   # Fallback to `global` font settings.
@@ -214,7 +215,8 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 #social:
   #LinkLabel: Link
-Social_links:
+#Social_links:
+social:
   Github: https://github.com/weidi1024
 
 # Social Links Icons
@@ -353,7 +355,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
+highlight_theme: night
 
 
 # ---------------------------------------------------------------
@@ -599,7 +601,7 @@ pace_theme: pace-theme-minimal
 canvas_nest: false
 
 # three_waves
-three_waves: ture
+three_waves: false
 
 # canvas_lines
 canvas_lines: false
@@ -701,5 +703,4 @@ images: assets/images
 
 # Theme version
 version: 5.1.1
-since: 2017
 repository: weidi1024/weidi1024.github.io
