@@ -164,10 +164,10 @@ scheme: Mist
 # - Introduce in 5.0.1
 # ---------------------------------------------------------------
 font:
-  enable: true
+  enable: false
 
   # Uri of fonts host. E.g. //fonts.googleapis.com (Default)
-  host: fonts.googleapis.com 
+  host:
 
   # Global font settings used on <body> element.
   global:
@@ -180,7 +180,6 @@ font:
   headings:
     external: true
     family: PingFang SC
-    size: 5
 
   # Font settings for posts
   # Fallback to `global` font settings.
@@ -202,9 +201,7 @@ font:
     family:
     size:
 
-
-
-
+    
 # ---------------------------------------------------------------
 # Sidebar Settings
 # ---------------------------------------------------------------
@@ -243,7 +240,7 @@ toc:
   enable: true
 
   # Automatically add list number to toc.
-  number: true
+  number: false
 
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: false
@@ -365,7 +362,7 @@ highlight_theme: night
 # MathJax Support
 mathjax:
   enable: true
-  per_page: false
+  per_page: true
   cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
 
 # Han Support docs: https://hanzi.pro/
