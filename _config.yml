@@ -382,9 +382,9 @@ baidu_analytics: 6264862eb4cc0849d1717a18460bc74e
 
 # Disqus
 disqus:
-  enable: ture
-  shortname: weidi1024
-  count: true
+  enable: false
+  shortname:
+  count: false
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
   hide: false
@@ -407,7 +407,7 @@ changyan:
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-#livere_uid: your uid
+livere_uid: MTAyMC8zMjIyNC84Nzg4
 
 # Baidu Share
 # Available value:
