@@ -491,27 +491,28 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: ture
-  app_id: AyC7P0MSvQRAItB7vRAXUqz6-gzGzoHsz
-  app_key: N7orFCepCgryIJXe7q1zE74C
+  enable: false
+  app_id: 
+  app_key: 
 
 # Show PV/UV of the website/page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
 busuanzi_count:
   # count values only if the other configs are false
+  # 在20171207晚开始添加
   enable: true
   # custom uv span for the whole site
   site_uv: true
-  site_uv_header: 本站访客数
-  site_uv_footer: 人次
+  site_uv_header: 本站总访客数
+  site_uv_footer:
   # custom pv span for the whole site
   site_pv: true
   site_pv_header: 本站总访问量
-  site_pv_footer: 次
+  site_pv_footer:
   # custom pv span for one page only
   page_pv: true
-  page_pv_header: 本文总阅读量
-  page_pv_footer: 次
+  page_pv_header: 阅读次数
+  page_pv_footer:
 
 
 # Tencent analytics ID
