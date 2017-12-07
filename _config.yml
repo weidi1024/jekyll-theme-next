@@ -595,7 +595,7 @@ pace: true
 #pace-theme-minimal
 # For example
 # pace_theme: pace-theme-center-simple
-pace_theme: pace-theme-minimal
+pace_theme: pace-theme-center-simple
 
 # Canvas-nest
 canvas_nest: true
@@ -604,7 +604,7 @@ canvas_nest: true
 three_waves: false
 
 # canvas_lines
-canvas_lines: false
+canvas_lines: true
 
 # canvas_sphere
 canvas_sphere: false
