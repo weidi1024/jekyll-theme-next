@@ -179,7 +179,7 @@ font:
   # Fallback to `global` font settings.
   headings:
     external: true
-    family: Lato
+    family: PingFang SC
     size: 5
 
   # Font settings for posts
