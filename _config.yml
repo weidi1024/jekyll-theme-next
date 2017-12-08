@@ -164,7 +164,7 @@ scheme: Mist
 # - Introduce in 5.0.1
 # ---------------------------------------------------------------
 font:
-  enable: false
+  enable: true
 
   # Uri of fonts host. E.g. //fonts.googleapis.com (Default)
   host:
@@ -180,6 +180,7 @@ font:
   headings:
     external: true
     family: PingFang SC
+    size: 1
 
   # Font settings for posts
   # Fallback to `global` font settings.
@@ -328,7 +329,7 @@ post_wordcount:
 
 # Declare license on posts
 post_copyright:
-  enable: false
+  enable: true
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
