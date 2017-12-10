@@ -6,7 +6,7 @@
 # Site
 title: 清凌凌的水
 subtitle: 
-description: 有目标的人在奔跑 无目标的人在流浪
+description: keep going
 author: WeiDi
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
@@ -86,7 +86,6 @@ keywords: "Jekyll, NexT"
 rss:
 
 # Specify the date when the site was setup
-#since: 2015
 since: 2017
 # icon between year and author @Footer
 authoricon: heart
