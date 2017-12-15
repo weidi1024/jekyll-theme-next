@@ -1,10 +1,10 @@
 ---
-title: about
+title:  
 layout: page
 
 ---
 
-![Keep going](https://weidi1024.github.io/images/keep_going.jpg)
+Email:weidi1024@126.com
 
 
 ### 誡子書
