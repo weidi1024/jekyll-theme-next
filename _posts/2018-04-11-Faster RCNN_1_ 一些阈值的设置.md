@@ -8,12 +8,14 @@ mathjax: true
 ---
 
 ***
+
 *Faster RCNN_1_ 一些阈值的设置*
+
 ***
 ***
 
 
-#一、faster rcnn的一种训练方式
+# 一、faster rcnn的一种训练方式
 联合训练
 
 - 1 stage1_rpn_train
@@ -22,8 +24,8 @@ mathjax: true
 - 4 stage2_fast_rcnn_train
 
 
-#二、一些阈值的设置
-##1 stage1_rpn_train.pt
+# 二、一些阈值的设置
+## 1 stage1_rpn_train.pt
 
     layer {
       name: 'rpn-data'
@@ -61,7 +63,7 @@ fast_rcnn.config.py
 将IOU大于0.7的设置为前景，将IOU小于0.3的设置为背景。
 
 
-##2 rpn_test.py
+## 2 rpn_test.py
 
     layer {
       name: 'proposal'
@@ -137,7 +139,7 @@ fast_rcnn.config.py
 
 
 
-## 4其他
+## 4 其他
 
     # Overlap threshold for a ROI to be considered foreground (if >= FG_THRESH)
     __C.TRAIN.FG_THRESH = 0.5
