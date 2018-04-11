@@ -25,7 +25,7 @@ mathjax: true
 
 
 # 二、一些阈值的设置
-## 1 stage1_rpn_train.pt
+## 1.stage1_rpn_train.pt
 
     layer {
       name: 'rpn-data'
@@ -61,7 +61,7 @@ python层：rpn.anchor_target_layer
 将IOU大于0.7的设置为前景，将IOU小于0.3的设置为背景。
 
 
-## 2 rpn_test.py
+## 2.rpn_test.py
 
     layer {
       name: 'proposal'
@@ -93,7 +93,7 @@ python层：rpn.proposal_layer
     __C.TRAIN.RPN_POST_NMS_TOP_N = 2000
 
 
-## 3 stage1_fast_rcnn_train.pt
+## 3.stage1_fast_rcnn_train.pt
     layer {
       name: 'data'
       type: 'Python'
@@ -132,7 +132,7 @@ python层：roi_data_layer.layer
 
 
 
-## 4 其他
+## 4.其他
 
 阈值设置：fast_rcnn.config.py
 
