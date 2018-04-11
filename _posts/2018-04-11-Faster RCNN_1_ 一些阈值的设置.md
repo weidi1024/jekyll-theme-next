@@ -48,14 +48,12 @@ mathjax: true
 
 原理：对产生的anchor进行标记，确定是前景还是背景。通过anchor与ground truth box的overlap来决定是否具有前景。
 
-python层：
-rpn.anchor_target_layer
+python层：rpn.anchor_target_layer
 
     labels[max_overlaps >= cfg.TRAIN.RPN_POSITIVE_OVERLAP] = 1
     labels[max_overlaps < cfg.TRAIN.RPN_NEGATIVE_OVERLAP] = 0
 
-阈值设置：
-fast_rcnn.config.py
+阈值设置：fast_rcnn.config.py
 
     __C.TRAIN.RPN_POSITIVE_OVERLAP = 0.7
     __C.TRAIN.RPN_NEGATIVE_OVERLAP = 0.3
@@ -80,11 +78,9 @@ fast_rcnn.config.py
       }
     }
 
-python层 
+python层：rpn.proposal_layer
 
-rpn.proposal_layer
-
-阈值设置：
+阈值设置：fast_rcnn.config.py
 
     # NMS threshold used on RPN proposals
     __C.TRAIN.RPN_NMS_THRESH = 0.7
@@ -116,20 +112,19 @@ rpn.proposal_layer
 
 原理：对RPN提供的proposals进行处理。选择前景ROI和背景ROI
 
-python层：
-roi_data_layer.layer
+python层：roi_data_layer.layer
 
     oi_data_layer.minibatch.py
     fg_inds = np.where(overlaps >= cfg.TRAIN.FG_THRESH)[0]
     bg_inds = np.where((overlaps < cfg.TRAIN.BG_THRESH_HI) &
        (overlaps >= cfg.TRAIN.BG_THRESH_LO))[0]
 
-阈值设置：
-fast_rcnn.config.py
+阈值设置：fast_rcnn.config.py
 
     __C.TRAIN.FG_THRESH = 0.5
     __C.TRAIN.BG_THRESH_HI = 0.5
     __C.TRAIN.BG_THRESH_LO = 0.1
+
 将IOU大于等于0.5的设置为前景，将IOU大于等于0.1，小于0.5之间的设置为背景。
 
 
@@ -137,9 +132,9 @@ fast_rcnn.config.py
 
 
 
-
-
 ## 4 其他
+
+阈值设置：fast_rcnn.config.py
 
     # Overlap threshold for a ROI to be considered foreground (if >= FG_THRESH)
     __C.TRAIN.FG_THRESH = 0.5
@@ -153,11 +148,13 @@ fast_rcnn.config.py
     __C.TEST.RPN_PRE_NMS_TOP_N = 6000
     ## Number of top scoring boxes to keep after applying NMS to RPN proposals
     __C.TEST.RPN_POST_NMS_TOP_N = 300
+
 测试阶段，产生proposals的NMS阈值。
 
     # Overlap threshold used for non-maximum suppression (suppress boxes with
     # IoU >= this threshold)
     __C.TEST.NMS = 0.3
+
 检测完之后对bbox进行NMS抑制的阈值
 
 
