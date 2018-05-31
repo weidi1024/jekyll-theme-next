@@ -1,7 +1,7 @@
 ---
 title: Faster RCNN_1_ 一些阈值的设置
 date: 2018-04-11 22:00:00
-categories: Faster RCNN学习笔记
+categories: Faster_RCNN学习笔记
 tags: Faster_RCNN
 mathjax: true
 
