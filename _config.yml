@@ -597,7 +597,7 @@ pace: true
 pace_theme: pace-theme-minimal
 
 # Canvas-nest
-canvas_nest: true
+canvas_nest: false
 
 # three_waves
 three_waves: false
@@ -676,7 +676,7 @@ vendors:
 
   # three_waves
   # https://github.com/jjandxa/three_waves
-  three_waves:false
+  three_waves:
 
   # three_waves
   # https://github.com/jjandxa/canvas_lines
