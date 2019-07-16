@@ -4,7 +4,7 @@
 # ---------------------------------------------------------------
 
 # Site
-title: weidi
+title: WeiDi's Blog
 subtitle: 
 description: keep going
 author: WeiDi
@@ -150,8 +150,8 @@ menu_icons:
 
 # Schemes
 #scheme: Muse
-scheme: Mist
-#scheme: Pisces
+#scheme: Mist
+scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -352,7 +352,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: night
+highlight_theme: normal
 
 
 # ---------------------------------------------------------------
