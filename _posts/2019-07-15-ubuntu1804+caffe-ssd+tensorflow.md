@@ -1,8 +1,8 @@
 ---
 title: 实验室电脑安装Ubuntu18.04 caffe tensorflow等
 date: 2019-07-16 22:00:00
-categories: 实验室
-tags: 实验室 ubuntu
+categories: Ubuntu
+tags:Ubuntu 实验室
 mathjax: true
 ---
 
@@ -39,6 +39,7 @@ ubuntu软件-下载自-进入修改为国内的地址，比如aliyun的
 
 # pip
 **安装pip**
+
 pip是python包的管理
 
 	sudo apt-get install python-pip python-dev build-essential
