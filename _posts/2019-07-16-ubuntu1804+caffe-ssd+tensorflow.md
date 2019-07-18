@@ -302,7 +302,7 @@ Makefile.config中第23行
         lmdb boost_system hdf5_hl hdf5 m \
         opencv_core opencv_highgui opencv_imgproc opencv_imgcodecs
 
-参考：https://blog.csdn.net/yuweiyang123/article/details/53106638 
+参考：[https://blog.csdn.net/yuweiyang123/article/details/53106638](https://blog.csdn.net/yuweiyang123/article/details/53106638) 
 
 **警告２**
 
@@ -336,7 +336,7 @@ Makefile.config中第23行
         bbox_height=1.0;
       }
   
-参考：https://blog.csdn.net/LuohenYJ/article/details/88416180
+参考：[https://blog.csdn.net/LuohenYJ/article/details/88416180](https://blog.csdn.net/LuohenYJ/article/details/88416180)
 
 
 
