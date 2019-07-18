@@ -7,6 +7,9 @@ mathjax: true
 ---
 
 
+@toc
+
+
 # 电脑硬件
 
 
@@ -380,7 +383,7 @@ Makefile.config中第23行
 
 ++**以下安装不分先后**++
 
-# 安装tensorflow1.13.1
+# 安装 TensorFlow 1.13.1
 
     sudo pip install tensorflow-gpu==1.13.0
 
@@ -393,7 +396,7 @@ Makefile.config中第23行
 | tensorflow_gpu-1.12.0 | 2.7、3.3-3.6 | GCC 4.8 | Bazel 0.15.0 | 7 | 9 |
 
 
-# 安装mxnet
+# 安装 MXNet 1.4.0
 由于我安装的是cuda10.0，因此使用如下命令安装
 
 	pip install mxnet-cu100
@@ -404,7 +407,7 @@ Makefile.config中第23行
 安装后注销或者重启即可使用
 
 
-# 安装wps
+# 安装WPS Office
 去官网下载deb格式的安装包，下载地址：[WPS Office 2019 For Linux](https://www.wps.cn/product/wpslinux)
 下载后直接双击deb安装包，进入软件管理器自动安装。
 
@@ -413,7 +416,7 @@ Makefile.config中第23行
 
 
 
-# 安装matlab2017b
+# 安装 MATLAB R2017b
 
 **安装**
 
