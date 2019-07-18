@@ -12,7 +12,7 @@ mathjax: true
 
 # 电脑硬件
 
-
+ 
 > DELL-PRECSION TOWER 7910  
 Intel Xeon(R) CPU E5-2630 v4 @ 2.20GHz × 20   
 GeForce GTX 1080 Ti  
