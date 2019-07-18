@@ -39,7 +39,6 @@ ubuntu软件-下载自-进入修改为国内的地址，比如aliyun的
 
 # pip
 **安装pip**
-
 pip是python包的管理
 
 	sudo apt-get install python-pip python-dev build-essential
