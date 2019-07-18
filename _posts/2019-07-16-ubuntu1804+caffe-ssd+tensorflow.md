@@ -6,50 +6,53 @@ tags: Ubuntu 实验室
 mathjax: true
 ---
 
-
-@toc
-
-
 # 电脑硬件
-
- 
-> DELL-PRECSION TOWER 7910  
-Intel Xeon(R) CPU E5-2630 v4 @ 2.20GHz × 20   
-GeForce GTX 1080 Ti  
-128 GB  
-2 TB + 256 GB  
+    
+DELL-PRECSION TOWER 7910  
+CPU：Intel Xeon(R) CPU E5-2630 v4 @ 2.20GHz × 20  
+GPU：GeForce GTX 1080 Ti  
+MEM：128 GB  
+DISK：2 TB + 256 GB  
 
 # 安装系统
-下载ubuntu1804系统安装包
+**下载系统镜像**   
+Ubuntu 18.04 LTS：[ubuntu-18.04.2-desktop-amd64.iso](http://releases.ubuntu.com/18.04.2/ubuntu-18.04.2-desktop-amd64.iso?_ga=2.29690233.792768982.1563462256-1758338699.1562838306)    
+Ubuntu桌面版下载地址：[Download Ubuntu Desktop | Download | Ubuntu](https://ubuntu.com/download/desktop) （此网址为最新版的下载地址）
 
-利用U盘制作启动盘
+**安装系统到电脑**   
+此处网上教程很多，在此给出一种安装方法：    
+ [用Ultraiso(软通牒)制作ubuntu U盘启动盘-百度经验](https://jingyan.baidu.com/article/77b8dc7fa7b7c56175eab611.html)     
+USB HDD+ 便携启动 也行
 
-插入电脑，开机按F12进入启动项选择选择U盘，进行安装
-
-此处网上教程很多，不在赘述
-
+U盘插入电脑，开机一直按F12进入启动项选择，选择U盘，进入Ubuntu安装界面    
+选择中文，选择安装    
+选择汉语    
+选择正常安装    
+选择其他选项，目的是自己配置分区    
+其实只需要配置三个分区就好    
+swap(交换空间) 设置成与内存大小相近 我设成了128GB（固态硬盘）    
+/根目录 按需求最好200G以上，这里我设成了125GB左右（固态硬盘）    
+/home 有多大设成多大，后续自己的数据程序基本都在里面，这里我设成了1.2TB（机械硬盘）    
 
 # apt换源
-打开软件和更新
-ubuntu软件-下载自-进入修改为国内的地址，比如aliyun的
-关闭并更新
-升级软件（可选）
+打开软件和更新    
+ubuntu软件-下载自-进入修改为国内的地址，比如aliyun的    
+关闭并更新    
+升级软件（可选）    
 
 	sudo apt-get update
 	sudo apt-get upgrade
 
 
 # pip
-**安装pip**
-
+**安装pip**   
 pip是python包的管理
 
 	sudo apt-get install python-pip python-dev build-essential
 	pip install --upgrade pip
 	
-**pip换源**
-
-默认的源服务器在国外，国内访问太慢，修改为国内的服务器访问起来较快。
+**pip换源**   
+默认的源服务器在国外，国内访问太慢，修改为国内的服务器访问起来较快。    
 修改 ~/.pip/pip.conf (没有就创建一个)， 如下：
 
 	mkdir ~/.pip/
@@ -64,16 +67,13 @@ pip换源之后速度真的是非常舒爽...
 
 
 # 安装显卡驱动430.34
-**下载显卡驱动**
-
+**下载显卡驱动**   
 下载地址：[Nvidia驱动程序下载](https://www.nvidia.cn/Download/index.aspx?lang=cn)
 
-**安装依赖项**
-
+**安装依赖项**   
 	sudo apt-get install dkms build-essential linux-headers-generic apt-show-versions
 	
-**禁用nouveau**
-
+**禁用nouveau**   
 	sudo gedit /etc/modprobe.d/blacklist.conf
 	
 在最后一行加入
@@ -89,18 +89,17 @@ pip换源之后速度真的是非常舒爽...
 	echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
 	sudo update-initramfs -u
 
-**开始安装**
-
+**开始安装**   
 重启，在显卡驱动位置打开终端，执行：
 
 	sudo ./NVIDIA-Linux-*.run
 	
-安装过程中，选择默认选项即可
+安装过程中，选择默认选项即可     
 安装完成后执行
 
 	nvidia-smi
 	
-(查看nvidia信息）
+(查看nvidia信息）    
 出现如下信息就说明安装成功了
 
 
@@ -108,28 +107,25 @@ pip换源之后速度真的是非常舒爽...
 
 	sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler libboost-all-dev libopenblas-dev liblapack-dev libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev
 
-# 安装cuda10.0
-**下载cuda**
+# 安装CUDA10.0
+**下载CUDA**   
+下载地址：[CUDA Toolkit 10.0 Archive | NVIDIA Developer](https://developer.nvidia.com/cuda-downloads)    
+如果需要下载历史版本，点击页面Legacy Releases按钮选择进行下载    
+推荐下载格式为runfile(local)版本，安装起来较为方便    
 
-下载地址：[CUDA Toolkit 10.0 Archive | NVIDIA Developer](https://developer.nvidia.com/cuda-downloads)
-如果需要下载历史版本，点击页面Legacy Releases按钮选择进行下载
-推荐下载格式为runfile(local)版本，安装起来很方便
-
-**开始安装**
-
+**开始安装**   
 下载好之后在安装包所在路径打开终端，执行以下命令进行安装：
 
 	sudo sh cuda_10.1.168_418.67_linux.run
 	
-条款页面太长，可按Ctrl+C退出条款页面，输入accept同意条款。
+条款页面太长，可按Ctrl+C退出条款页面，输入accept同意条款。    
 安装过程中的选项，是否安装显卡驱动的时候选择NO（因为之前已经安装过了），其他都是选择默认。
 
 如果没有出错的话，会显示：
 
 
-**设置**
-
-安装完成后需要设置环境变量和动态链接库
+**设置**   
+安装完成后需要设置环境变量和动态链接库    
 执行
 
 	sudo gedit ~/.bashrc
@@ -164,7 +160,7 @@ pip换源之后速度真的是非常舒爽...
 
 	reboot
 
-**检查是否安装成功**
+**检查是否安装成功**   
 
 	nvcc --version
 
@@ -180,16 +176,14 @@ pip换源之后速度真的是非常舒爽...
 
 
 # 安装cudnn7.4
-**下载cudnn**
-
-下载地址：[cuDNN Archive | NVIDIA Developer](https://developer.nvidia.com/rdp/cudnn-archive)
-选择需要的版本，选择cuDNN Library for Linux进行下载
+**下载cudnn**   
+下载地址：[cuDNN Archive | NVIDIA Developer](https://developer.nvidia.com/rdp/cudnn-archive)    
+选择需要的版本，选择cuDNN Library for Linux进行下载    
 这里我选择这个版本：[cudnn-10.0-linux-x64-v7.4.2.24.tgz](https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.4.2/prod/10.0_20181213/cudnn-10.0-linux-x64-v7.4.2.24.tgz)
 
 >下载这个版本是因为tensorflow需要这个版本的cudnn
 
-**拷贝安装**
-
+**拷贝安装**   
 下载好解压后解压后进入cuda文件夹，执行：
 
 	sudo cp include/cudnn.h /usr/local/cuda/include
@@ -206,38 +200,35 @@ pip换源之后速度真的是非常舒爽...
 
 
 # 安装openblas
-
-**下载**
-
-可以到 https://github.com/xianyi/OpenBLAS/releases 下载你喜欢的版本解压到指定目录，也可以直接git clone
-
-**安装依赖项**
+这是一个科学计算库   
+**下载**   
+可以到 [https://github.com/xianyi/OpenBLAS/releases](https://github.com/xianyi/OpenBLAS/releases) 下载你喜欢的版本解压到指定目录，也可以直接git clone   
+**安装依赖项**     
 
 	sudo apt-get install libopenblas-dev
 	sudo apt-get install libopenblas-base
 
-**安装**
-
+**安装**   
 下载后进入OpenBLAS文件夹，执行以下命令进行安装：
 
 	make -j10
 	sudo make --PREFIX=/usr/local/OpenBLAS/ install
 
-**测试**
-
+**测试**   
 测试OpenBLAS
 
 	gedit ./test.c
 
 输入：
 
-等待编辑
+==**等待编辑**==
 
 执行：
 
 	gcc ./test.c  -I /usr/local/OpenBLAS/include/ -L /usr/local/OpenBLAS/lib -lopenblas
 	
 会在当前文件夹下生成可执行文件　a.out
+执行：
 
 	a.out
 	
@@ -248,21 +239,17 @@ pip换源之后速度真的是非常舒爽...
 
 
 # 安装caffe-ssd
-以上全部安装完成后，我们开始安装caffe-ssd
-**下载**
+以上全部安装完成后，我们开始安装caffe-ssd   
+**下载**   
+下载caffe-ssd源码  [github caffe-ssd地址](https://github.com/weiliu89/caffe/tree/ssd)   
+下载caffe源码  [github caffe地址](https://github.com/BVLC/caffe)     
 
-可以到 https://github.com/xianyi/OpenBLAS/releases 下载你喜欢的版本解压到指定目录，也可以直接git clone
-下载caffe-ssd源码  [github caffe-ssd地址](https://github.com/weiliu89/caffe/tree/ssd)
-下载caffe源码  [github caffe地址](https://github.com/BVLC/caffe)
+**修改Makefile.config**   
+下载解压后进入caffe-ssd文件夹    
+官方的说明是 cp Makefile.config.example Makefile.config 然后修改内容。    
+这里我已经修改好了，修改好的Makefile.config，直接拷贝到caffe-ssd中即可。    
 
-**修改Makefile.config**
-
-下载解压后进入caffe-ssd文件夹
-
-官方的说明是 cp Makefile.config.example Makefile.config 然后修改内容。
-这里我已经修改好了，修改好的Makefile.config，直接拷贝到caffe-ssd中即可。
-
-关于opencv版本：
+关于opencv版本：    
 Makefile.config中第23行
 > OPENCV_VERSION := 3
 
@@ -272,20 +259,35 @@ Makefile.config中第23行
 
 如果是3.x的话，需要将Makefile.config中第23前面的注释#去掉。
 
-**拷贝文件**
-
-将caffe中关于cudnn的文件全部拷贝到caffe-ssd的相应文件夹中中，因为caffe-ssd中的版本太老，直接安装会出错。
+**拷贝文件**   
+将caffe中关于cudnn的文件全部拷贝到caffe-ssd的相应文件夹中中，因为caffe-ssd中的caffe版本太老，直接安装会出错。
 
 **开始编译**
 
-	sudo make all -j20
-	sudo make test -j20
-	sudo make runtest -j20
-	sudo make pycaffe -j20
+    sudo make all -j20
+    sudo make test -j20
+    sudo make runtest -j20
+    sudo make pycaffe -j20
+
+如果不报错，应该说明安装好了
+
+**测试pycaffe**   
+终端输入
+
+    python
+    import sys
+    sys.path.append("{your_caffe_path}/python")
+    import caffe
+
+不报错就说明安装好了
+
+**测试mnist分类**   
+这个教程写的挺好的：[运行caffe自带的mnist实例教程](https://www.cnblogs.com/wmlj/p/8681216.html)
+
 
 ++**以下是可能出现的错误及解决方法**++
 
-**错误１**
+**错误１**   
 
     collect2: error: ld returned 1 exit status
     .build_release/lib/libcaffe.so：对‘cv::VideoWriter::isOpened() const’未定义的引用
@@ -404,24 +406,23 @@ Makefile.config中第23行
 	pip install mxnet-cu100
 
 # 安装搜狗拼音输入法
-去官网下载deb格式的安装包，下载地址：[搜狗输入法 for linux](https://pinyin.sogou.com/linux/?r=pinyin)
-下载后直接双击deb安装包，进入软件管理器自动安装。
+去官网下载deb格式的安装包，下载地址：[搜狗输入法 for linux](https://pinyin.sogou.com/linux/?r=pinyin)    
+下载后直接双击deb安装包，进入软件管理器自动安装。    
 安装后注销或者重启即可使用
 
 
 # 安装WPS Office
-去官网下载deb格式的安装包，下载地址：[WPS Office 2019 For Linux](https://www.wps.cn/product/wpslinux)
+去官网下载deb格式的安装包，下载地址：[WPS Office 2019 For Linux](https://www.wps.cn/product/wpslinux)    
 下载后直接双击deb安装包，进入软件管理器自动安装。
 
-安装后若报错，系统缺失字体。
+安装后若报错，系统缺失字体。    
 解决方法  [解决：WPS for Linux提示“系统缺失字体”](https://www.cnblogs.com/dinphy/p/5888546.html)
 
 
 
 # 安装 MATLAB R2017b
 
-**安装**
-
+**安装**   
 进入matlab文件夹，执行：
 
 	sudo mkdir /media/matlab
@@ -435,8 +436,7 @@ Install choosing the option "Use a File Installation Key" and supply the followi
     sudo mount -o loop ./R2017b_glnxa64_dvd2.iso /media/matlab
 
 
-**激活**
-
+**激活**   
 	cd /usr/local/MATLAB/R2016b/bin
 	sudo ./matlab
 
@@ -445,8 +445,7 @@ Install choosing the option "Use a File Installation Key" and supply the followi
 	sudo cp license_standalone.lic /usr/local/MATLAB/R2017b/licenses/
 	sudo cp libmwservices.so /usr/local/MATLAB/R2017b/bin/glnxa64/
 
-**任意位置终端打开matlab**
-
+**任意位置终端打开matlab**   
 在目录/usr/local/bin里面创建一个指向Matlab安装目录/usr/local/MATLAB/R2017b/bin的符号链接：（非默认安装需替换安装路径）
 
 	sudo ln -s /usr/local/MATLAB/R2017b/bin/matlab /usr/local/bin/matlab
@@ -456,8 +455,7 @@ Install choosing the option "Use a File Installation Key" and supply the followi
 	matlab
 
 
-**其他**
-
+**其他**   
 如果出现权限问题，执行如下命令
 
 	sudo chmod a+w -R ~/.matlab
