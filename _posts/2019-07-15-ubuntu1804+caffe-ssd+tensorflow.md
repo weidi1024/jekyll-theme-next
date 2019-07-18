@@ -2,7 +2,7 @@
 title: 实验室电脑安装Ubuntu18.04 caffe tensorflow等
 date: 2019-07-16 22:00:00
 categories: Ubuntu
-tags:Ubuntu 实验室
+tags: Ubuntu 实验室
 mathjax: true
 ---
 
