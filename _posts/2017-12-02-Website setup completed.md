@@ -21,13 +21,15 @@ tags:
  
 自从发现了可以使用Github Pages和Jekyll搭建静态博客系统，而且还免费，简直发现了新大陆啊。然后迫不及待地找到一些教程，但是大都讲的不太完整，看的云里雾里，于是我搜索到了许多大佬写的文章，发现这些比较适合我。
 
->Github Pages + Jekyll 独立博客一小时快速搭建&上线指南[ http://playingfingers.com/2016/03/26/build-a-blog]( http://playingfingers.com/2016/03/26/build-a-blog)
->
->我选择的主题 [https://github.com/Simpleyyt/jekyll-theme-next](https://github.com/Simpleyyt/jekyll-theme-next)
->
->本主题配置[http://theme-next.simpleyyt.com/](http://theme-next.simpleyyt.com/)
->
->MarkDown教程 [https://sspai.com/post/25137](https://sspai.com/post/25137)
+Github Pages + Jekyll 独立博客一小时快速搭建&上线指南[ http://playingfingers.com/2016/03/26/build-a-blog]( http://playingfingers.com/2016/03/26/build-a-blog)
+
+上面的连接挂了，使用这个链接 [https://www.jianshu.com/p/7593508666f8](https://www.jianshu.com/p/7593508666f8)
+
+我选择的主题 [https://github.com/Simpleyyt/jekyll-theme-next](https://github.com/Simpleyyt/jekyll-theme-next)
+
+本主题配置[http://theme-next.simpleyyt.com/](http://theme-next.simpleyyt.com/)
+
+MarkDown教程 [https://sspai.com/post/25137](https://sspai.com/post/25137)
 
 # 其他
 最近参加了学校里面的一些大佬的小型会议。
