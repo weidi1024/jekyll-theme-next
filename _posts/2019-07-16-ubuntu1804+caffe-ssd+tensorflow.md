@@ -7,17 +7,19 @@ mathjax: true
 ---
 
 # 电脑硬件
-    
+
 DELL-PRECSION TOWER 7910  
 CPU：Intel Xeon(R) CPU E5-2630 v4 @ 2.20GHz × 20  
 GPU：GeForce GTX 1080 Ti  
-MEM：128 GB  
-DISK：2 TB + 256 GB  
+Mem：128 GB  
+Disk：256 GB + 2TB
 
 # 安装系统
 **下载系统镜像**   
 Ubuntu 18.04 LTS：[ubuntu-18.04.2-desktop-amd64.iso](http://releases.ubuntu.com/18.04.2/ubuntu-18.04.2-desktop-amd64.iso?_ga=2.29690233.792768982.1563462256-1758338699.1562838306)    
 Ubuntu桌面版下载地址：[Download Ubuntu Desktop | Download | Ubuntu](https://ubuntu.com/download/desktop) （此网址为最新版的下载地址）
+
+注：本文需要下载的所有文件，我都已经下载好，放在了~/WD/download文件件内。
 
 **安装系统到电脑**   
 此处网上教程很多，在此给出一种安装方法：    
@@ -35,6 +37,7 @@ swap(交换空间) 设置成与内存大小相近 我设成了128GB（固态硬�
 /home 有多大设成多大，后续自己的数据程序基本都在里面，这里我设成了1.2TB（机械硬盘）    
 
 # apt换源
+开机后联网    
 打开软件和更新    
 ubuntu软件-下载自-进入修改为国内的地址，比如aliyun的    
 关闭并更新    
