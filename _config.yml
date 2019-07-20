@@ -4,10 +4,10 @@
 # ---------------------------------------------------------------
 
 # Site
-title: WeiDi's Blog
+title: WD's Blog
 subtitle: 
 description: keep going
-author: WeiDi
+author: WD
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
 date_format: '%Y-%m-%d'
@@ -255,8 +255,8 @@ toc:
 
 sidebar:
   # Sidebar Position, available value: left | right
-  position: left
-  #position: right
+  #position: left
+  position: right
 
   # Sidebar Display, available value:
   #  - post    expand on posts automatically. Default.
@@ -497,7 +497,7 @@ leancloud_visitors:
 busuanzi_count:
   # count values only if the other configs are false
   # 在20171207晚开始添加
-  enable: true
+  enable: false
   # custom uv span for the whole site
   site_uv: true
   site_uv_header: 本站总访客数
