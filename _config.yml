@@ -372,7 +372,10 @@ han: false
 #swiftype_key:
 
 # Baidu Analytics ID
-baidu_analytics: 6264862eb4cc0849d1717a18460bc74e
+# baidu_analytics: 6264862eb4cc0849d1717a18460bc74e  old
+# new add on 20190720
+baidu_analytics: a18f47be7e8a0c0bb9106fa7647d31b3
+
 
 # Duoshuo ShortName
 #duoshuo_shortname:
@@ -497,7 +500,7 @@ leancloud_visitors:
 busuanzi_count:
   # count values only if the other configs are false
   # 在20171207晚开始添加
-  enable: true
+  enable: false
   # custom uv span for the whole site
   site_uv: true
   site_uv_header: 本站总访客数
