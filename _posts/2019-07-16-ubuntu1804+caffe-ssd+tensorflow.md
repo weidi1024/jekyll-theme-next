@@ -394,9 +394,10 @@ Makefile.config中第23行
 
     sudo pip install tensorflow-gpu==1.13.0
 
-附：安装tensorflow需要的cuda以及cudnn版本可进入官网查询
-地址：[从源代码编译  |  TensorFlow](https://tensorflow.google.cn/install/source)
-页面最下方即可查看版本依赖关系
+附：安装tensorflow需要的cuda以及cudnn版本可进入官网查询    
+地址：[从源代码编译  |  TensorFlow](https://tensorflow.google.cn/install/source)    
+页面最下方即可查看版本依赖关系   
+
 | 版本      | Python 版本|  编译器| 编译工具| cuDNN | CUDA |
 | --------- | -------- | -----: | --: | --: | --: |
 | tensorflow_gpu-1.13.0 | 2.7、3.3-3.6 | GCC 4.8 | Bazel 0.19.2 | 7.4 | 10.0 |
