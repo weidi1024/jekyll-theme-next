@@ -7,13 +7,7 @@ mathjax: true
 
 ---
 
-***
-
 *Faster RCNN_1_ 一些阈值的设置*
-
-***
-***
-
 
 # 一、faster rcnn的一种训练方式
 联合训练

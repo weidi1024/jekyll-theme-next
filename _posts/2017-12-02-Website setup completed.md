@@ -5,12 +5,11 @@ categories:
 tags:
 ---
 
----
+
 倒腾了好久，才知道github Pages 和 jekyll的关系，以及如何选择一个大佬的模板作为自己博客的基础。
 
----
 
-# 以前的工作
+# 以前的方案
 ## github pages静态网页
 之前接触html5的时候，用过这个github pages写过静态网页，只有一个html页面，不够系统，称不上是网站或者说博客。[https://weidi1024.github.io/test/index.html](https://weidi1024.github.io/test/index.html)
 ## 云主机+WordPress
