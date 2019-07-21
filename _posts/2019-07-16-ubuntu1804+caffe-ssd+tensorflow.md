@@ -3,12 +3,14 @@ title: 实验室电脑安装Ubuntu18.04 caffe tensorflow等
 date: 2019-07-16 22:00:00
 categories: Ubuntu
 tags: Ubuntu 实验室
-mathjax: true
+mathjax: false
 ---
+
+最近由于一些原因，给实验室电脑重装了Ubuntu系统，安装了具有难以言表的难度的caffe，以及tensorflow、mxnet等工具，踩了许多坑，为了以后安装方便，因此将安装过程记录下来。
 
 # 电脑硬件
 
-DELL-PRECSION TOWER 7910  
+**DELL-PRECSION TOWER 7910**  
 CPU：Intel Xeon(R) CPU E5-2630 v4 @ 2.20GHz × 20  
 GPU：GeForce GTX 1080 Ti  
 Mem：128 GB  
@@ -35,6 +37,7 @@ U盘插入电脑，开机一直按F12进入启动项选择，选择U盘，进入
 swap(交换空间) 设置成与内存大小相近 我设成了128GB（固态硬盘）    
 /根目录 按需求最好200G以上，这里我设成了125GB左右（固态硬盘）    
 /home 有多大设成多大，后续自己的数据程序基本都在里面，这里我设成了1.2TB（机械硬盘）    
+
 
 # apt换源
 开机后联网    
