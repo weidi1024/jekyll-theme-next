@@ -1,8 +1,8 @@
 ---
-title: Faster RCNN_1_ 一些阈值的设置
+title: Faster R-CNN 中的一些阈值
 date: 2018-04-11 22:00:00
-categories: Faster_RCNN学习笔记
-tags: Faster_RCNN
+categories: 目标检测
+tags: 目标检测 Faster_RCNN
 mathjax: true
 ---
 
