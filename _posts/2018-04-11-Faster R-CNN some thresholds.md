@@ -4,13 +4,12 @@ date: 2018-04-11 22:00:00
 categories: Faster_RCNN学习笔记
 tags: Faster_RCNN
 mathjax: true
-
 ---
 
-*Faster RCNN_1_ 一些阈值的设置*
+最近需要调一个基于Faster R-CNN框架的方法的性能，不可避免的需要调网络中的一些阈值。因此，现在记录一下Faster R-CNN中一些阈值的意义。
 
-# 一、faster rcnn的一种训练方式
-联合训练
+#  1 faster rcnn的一种训练方式
+四步训练法
 
 - 1 stage1_rpn_train
 - 2 stage1_fast_rcnn_train
@@ -18,8 +17,8 @@ mathjax: true
 - 4 stage2_fast_rcnn_train
 
 
-# 二、一些阈值的设置
-## 1.stage1_rpn_train.pt
+# 2 一些阈值的设置
+## 2.1   stage1_rpn_train.pt
 
     layer {
       name: 'rpn-data'
@@ -55,7 +54,7 @@ python层：rpn.anchor_target_layer
 将IOU大于0.7的设置为前景，将IOU小于0.3的设置为背景。
 
 
-## 2.rpn_test.py
+## 2.2  rpn_test.py
 
     layer {
       name: 'proposal'
@@ -87,7 +86,7 @@ python层：rpn.proposal_layer
     __C.TRAIN.RPN_POST_NMS_TOP_N = 2000
 
 
-## 3.stage1_fast_rcnn_train.pt
+## 2.3  stage1_fast_rcnn_train.pt
     layer {
       name: 'data'
       type: 'Python'
@@ -126,7 +125,7 @@ python层：roi_data_layer.layer
 
 
 
-## 4.其他
+## 2.4  其他
 
 阈值设置：fast_rcnn.config.py
 
