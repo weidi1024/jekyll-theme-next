@@ -1,5 +1,5 @@
 ---
-title: 实验室电脑安装Ubuntu18.04 caffe tensorflow等
+title: 安装Ubuntu18.04 caffe tensorflow mxnet等
 date: 2019-07-16 22:00:00
 categories: Ubuntu
 tags: Ubuntu 实验室 caffe tensorflow mxnet
