@@ -434,9 +434,7 @@ Makefile.config中第23行
 如果懒得下载，也可以使用已下载好的文件，百度网盘： https://pan.baidu.com/s/1jIcfEMa 密码: rbeh　　　　
 将下载的文件解压放到/usr/share/package-data-downloads中，然后手动在命令行执行sudo dpkg-reconfigure ttf-mscorefonts-installer这条语句手动指定文件夹的位置,重新配置下。　　　　
 
-参考，[解决Ubuntu“下载额外数据文件失败  ttf-mscorefonts-installer的问题_博客园](https://www.cnblogs.com/bfhxt/p/9967039.html）
-
-
+参考: [解决Ubuntu“下载额外数据文件失败  ttf-mscorefonts-installer的问题_博客园](https://www.cnblogs.com/bfhxt/p/9967039.html)
 # 安装 MATLAB R2017b
 
 **安装**   
