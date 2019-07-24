@@ -12,7 +12,7 @@ mathjax: false
 
 **DELL-PRECSION TOWER 7910**  
 CPU：Intel Xeon(R) CPU E5-2630 v4 @ 2.20GHz × 20  
-GPU：GeForce GTX 1080 Ti  
+GPU：GeForce GTX 1080 Ti × 2     
 Mem：128 GB  
 Disk：256 GB + 2TB
 
