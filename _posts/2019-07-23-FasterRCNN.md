@@ -2,7 +2,7 @@
 title: Faster R-CNN阅读
 date: 2019-07-23 22:00:00
 categories: Object_Detection
-tags: 目标检测 Faster_R-CNN
+tags: Object_Detection Faster_R-CNN
 mathjax: false
 ---
 

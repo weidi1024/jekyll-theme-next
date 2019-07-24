@@ -1,8 +1,8 @@
 ---
 title: Faster R-CNN 中的一些阈值
 date: 2018-04-11 22:00:00
-categories: 目标检测
-tags: 目标检测 Faster_RCNN
+categories: Object_Detection
+tags: Object_Detection Faster_R-CNN
 mathjax: true
 ---
 
