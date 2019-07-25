@@ -57,13 +57,18 @@ R-CNN的方法端到端地训练CNN，将候选区域分为目标或者背景类
 （赋予anchors标签）为了训练RPN，我们给每一个anchor分配一个二值标签，即是否是目标。在以下两种情况下，将anchor的标签赋为正类：（1）与某一个ground truth有最大重叠率（Intersection-over-Union，IoU）的anchor；（2）与任意一个GT bbox的IOU大于0.7的anchor。需要说明的是，一个GT bbox有可能为多个anchor分配正标签。通常上述第二个情况即可确定大部分anchor的标签。如果anchor与所有的GT bbox的IOU都小于0.3的话，将这个anchor的标签赋为负类。既不是正类也不是负类的anchor对训练没有帮助。   
 （损失函数）有了如上的定义，我们遵循Fast R-CNN的多任务损失函数，设计RPN的损失函数如下：   
 
-![损失函数](https://weidi1024.github.io/_posts/搜狗截图20190724222430.png)   
+![损失函数](https://www.github.weidi1024/weidi1024.github.io/_posts/搜狗截图20190724222430.png)   
+
+<img src="https://weidi1024.github.io/_posts/搜狗截图20190724222430.png" height="20%"/>
 
 其中，i是一个mini-batch中anchor的索引，pi是anchor i是否为目标的概率。pi* 是GT label。ti是一个向量，表示预测bbox的4个参数坐标。ti * 是与正anchor相关的GTbbox的坐标。分类损失Lclc是在两个类别上的对数损失函数。对于回归损失函数，我们使用Lreg=R(ti-ti* )，其中R是一个鲁棒的损失函数，smooth L1，在[2]中有定义。pi* Lreg表示回归损失旨在anchor i为正类（pi* =1）的情况下才被激活，当pi*=0时，该项被忽略。分类层和回归层分别输出{pi}和{ti}。   
 这两项通过Ncls和Nreg进行归一，然后通过平衡参数λ进行权重分配。在我们当前的版本中，Ncls=256，Nreg~2400，λ=10，因此分类和回归项的权重才能大致相等。我们通过实验表明，最终的结果对的值不敏感（表9）。我们发现上述的归一化不是必须的，可以被简化。   
 对于边界回归，我们定义以下4个坐标的参数化： 
 
-![坐标参数化](https://weidi1024.github.io/_posts/搜狗截图20190724222430.png)      
+![坐标参数化](https://www.github.weidi1024/weidi1024.github.io/_posts/搜狗截图20190724222430.png)      
+
+<img src="https://weidi1024.github.io/_posts/搜狗截图20190724222430.png" height="20%"/>
+
 
 其中x，y，w，h表示anchor的中心坐标和宽长。变量x，xa，x*分别表示预测bbox，anchor bbox，GT bbox的中心横坐标。y，w，h也是相同。可以被认为是从anchor bbox到附近的GT bbox的回归。   
 然而，我们的方法实现了边框回归，与其他方法不同[1] [2] 。[1]中，bbox回归通过在池化的特征上进行回归，并且不同尺寸的区域回归的权重相同。我们的方案中，用于回归的特征具有相同的尺寸，3x3。为了实现不同的尺寸，我们设置了k个bbox回归器。每一个回归器负责一种尺寸一种纵横比的bbox，k个回归器不共享参数。尽管使用相同尺寸的特征，预测不同尺寸的bbox还是有可能的，这要归功于anchors的设计。 所有anchor的损失函数可训练，但这样使得网络偏向于负样本，
