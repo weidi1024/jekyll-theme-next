@@ -1,8 +1,8 @@
 ---
 title: 调整显卡风扇转速
 date: 2019-11-26 22:00:00
-categories: ubuntu
-tags: ubuntu
+categories: Ubuntu
+tags: Ubuntu
 mathjax: true
 ---
 
