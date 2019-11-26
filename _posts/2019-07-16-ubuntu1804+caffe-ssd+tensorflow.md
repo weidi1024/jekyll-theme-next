@@ -77,10 +77,6 @@ pip换源之后速度真的是非常舒爽...
 **下载显卡驱动**   
 下载地址：[Nvidia驱动程序下载](https://www.nvidia.cn/Download/index.aspx?lang=cn)
 
-**安装依赖项**   
-如果没有联网，经证实这一步也可以不用进行。
-
-	sudo apt-get install dkms build-essential linux-headers-generic apt-show-versions
 	
 **禁用nouveau**   
 	sudo gedit /etc/modprobe.d/blacklist.conf
@@ -123,10 +119,6 @@ Ctrl Alt F7进入图像界面
 出现如下信息就说明安装成功了
 
 
-# 安装相关依赖项
-如果没有联网，经证实这一步也可以不用进行。
-
-	sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler libboost-all-dev libopenblas-dev liblapack-dev libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev
 
 # 安装CUDA10.0
 **下载CUDA**   
@@ -216,21 +208,15 @@ CUDA版本与nvidia显卡驱动版本之间的关系为：[Release Notes :: CUDA
 对，直接拷贝过去就可以了
 
 
-# 安装相关依赖项
-
-	sudo apt-get install build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libtiff5-dev libdc1394-22-dev libatlas-base-dev gfortran
-
-
-# 安装openblas
-这是一个科学计算库
-此步是为caffe提供数学计算库，caffe允许使用的科学计算库有ATLAS、OpenBlas和atlas。
-如果你希望简单快速安装，可以选择使用atlas就好，atlas安装较为容易，一行命令就能搞定，那就自动忽略这一段。
-如果你喜欢折腾，可以试试安装openblas，下载安装配置过程较为复杂。
+# 安装openblas(非必须)
+注：这是一个科学计算库    
+此步是为caffe提供数学计算库，caffe允许使用的科学计算库有ATLAS、OpenBlas和atlas。    
+如果你希望简单快速安装，可以选择使用atlas就好，atlas安装较为容易，一行命令就能搞定，那就自动忽略这一段。    
+如果你喜欢折腾，可以试试安装openblas，下载安装配置过程较为复杂。    
 
 **下载**   
 可以到 [https://github.com/xianyi/OpenBLAS/releases](https://github.com/xianyi/OpenBLAS/releases) 下载你喜欢的版本解压到指定目录，也可以直接git clone   
-**安装依赖项**     
-
+**安装依赖项**      
 	sudo apt-get install libopenblas-dev
 	sudo apt-get install libopenblas-base
 
@@ -301,6 +287,14 @@ CUDA版本与nvidia显卡驱动版本之间的关系为：[Release Notes :: CUDA
 
 > 0.000000 1.000000 2.000000 3.000000 4.000000 5.000000 6.000000 7.000000 8.000000 9.000000 
 90.000000 81.000000 72.000000 63.000000 54.000000 45.000000 36.000000 27.000000 18.000000 9.000000
+
+
+# 安装相关依赖项
+
+	sudo apt-get install dkms build-essential linux-headers-generic apt-show-versions
+	sudo apt-get install build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libtiff5-dev libdc1394-22-dev libatlas-base-dev gfortran
+	sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler libboost-all-dev libopenblas-dev liblapack-dev libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev
+
 
 
 # 安装caffe/caffe-ssd
@@ -483,6 +477,18 @@ Makefile.config中第23行
 由于我安装的是cuda10.0，因此使用如下命令安装
 
 	pip install mxnet-cu100
+
+# 安装pytorch
+
+	pip install torch
+
+tensorflow mxnet 和 pytoch的安装真的是超级方便
+
+# 安装PyCharm   
+百度百科：PyCharm是一种Python IDE，带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。此外，该IDE提供了一些高级功能，以用于支持Django框架下的专业Web开发。    
+教程网上有很多，我就不重复了
+这个教程写的不错: [Ubuntu 18.04 安装 PyCharm - 梦Dancing的博客 - CSDN博客](https://blog.csdn.net/qq_15192373/article/details/81091278)
+
 
 # 安装搜狗拼音输入法
 去官网下载deb格式的安装包，下载地址：[搜狗输入法 for linux](https://pinyin.sogou.com/linux/?r=pinyin)    
