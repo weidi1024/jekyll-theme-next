@@ -17,9 +17,9 @@ Mem：128 GB
 Disk：256 GB + 2TB
 
 # 安装系统
-**下载系统镜像**   
-Ubuntu 18.04 LTS：[ubuntu-18.04.2-desktop-amd64.iso](http://releases.ubuntu.com/18.04.2/ubuntu-18.04.2-desktop-amd64.iso?_ga=2.29690233.792768982.1563462256-1758338699.1562838306)    
-Ubuntu桌面版下载地址：[Download Ubuntu Desktop | Download | Ubuntu](https://ubuntu.com/download/desktop) （此网址为最新版的下载地址）
+**下载系统镜像**  
+Ubuntu桌面版下载地址：[Download Ubuntu Desktop | Download | Ubuntu](https://ubuntu.com/download/desktop) （此网址为最新版的下载地址） 
+我下载的是 Ubuntu 18.04 LTS：[ubuntu-18.04.2-desktop-amd64.iso](http://releases.ubuntu.com/18.04.2/ubuntu-18.04.2-desktop-amd64.iso?_ga=2.29690233.792768982.1563462256-1758338699.1562838306)    
 
 注：本文需要下载的所有文件，我都已经下载好，放在了~/WD/download文件件内。
 
@@ -40,14 +40,15 @@ swap(交换空间) 设置成与内存大小相近 我设成了128GB（固态硬�
 
 
 # apt换源
-开机后联网    
+由于Ubuntu默认的源下载较慢，为方便后续安装软件，首先需要换为国内稳定的源。
+开机后联网
 打开软件和更新    
 ubuntu软件-下载自-进入修改为国内的地址，比如aliyun的    
 关闭并更新    
 升级软件（可选）    
 
 	sudo apt-get update
-	sudo apt-get upgrade
+	sudo apt-get upgrade（这里可以不用升级，非常慢）
 
 
 # pip
@@ -72,11 +73,13 @@ pip是python包的管理
 pip换源之后速度真的是非常舒爽...
 
 
-# 安装显卡驱动430.34
+# 安装显卡驱动   
 **下载显卡驱动**   
 下载地址：[Nvidia驱动程序下载](https://www.nvidia.cn/Download/index.aspx?lang=cn)
 
 **安装依赖项**   
+如果没有联网，经证实这一步也可以不用进行。
+
 	sudo apt-get install dkms build-essential linux-headers-generic apt-show-versions
 	
 **禁用nouveau**   
@@ -96,20 +99,32 @@ pip换源之后速度真的是非常舒爽...
 	sudo update-initramfs -u
 
 **开始安装**   
-重启，在显卡驱动位置打开终端，执行：
-
-	sudo ./NVIDIA-Linux-*.run
+Ctrl Alt F1进入命令行
+登录
+执行下面命令
+	sudo service lightdm stop
 	
-安装过程中，选择默认选项即可     
+cd到显卡驱动的位置，开始安装
+	
+	cd ~/WD/download
+	sudo ./NVIDIA-Linux-*.run
+	sudo sh ./NVIDIA-Linux-*.run（有时候需要这样）
+
+安装过程中，选择默认选项即可 
 安装完成后执行
+
+	sudo service lightdm start
+
+Ctrl Alt F7进入图像界面
+按理说需要登录，进入桌面后执行(查看nvidia信息）
 
 	nvidia-smi
 	
-(查看nvidia信息）    
 出现如下信息就说明安装成功了
 
 
 # 安装相关依赖项
+如果没有联网，经证实这一步也可以不用进行。
 
 	sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler libboost-all-dev libopenblas-dev liblapack-dev libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev
 
@@ -118,6 +133,8 @@ pip换源之后速度真的是非常舒爽...
 下载地址：[CUDA Toolkit 10.0 Archive | NVIDIA Developer](https://developer.nvidia.com/cuda-downloads)    
 如果需要下载历史版本，点击页面Legacy Releases按钮选择进行下载    
 推荐下载格式为runfile(local)版本，安装起来较为方便    
+CUDA版本与nvidia显卡驱动版本之间的关系为：[Release Notes :: CUDA Toolkit Documentation](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html)    
+里面有个 Table 1. CUDA Toolkit and Compatible Driver Versions
 
 **开始安装**   
 下载好之后在安装包所在路径打开终端，执行以下命令进行安装：
@@ -125,7 +142,7 @@ pip换源之后速度真的是非常舒爽...
 	sudo sh cuda_10.1.168_418.67_linux.run
 	
 条款页面太长，可按Ctrl+C退出条款页面，输入accept同意条款。    
-安装过程中的选项，是否安装显卡驱动的时候选择NO（因为之前已经安装过了），其他都是选择默认。
+注意：安装过程中的选项，是否安装显卡驱动的时候选择NO（因为之前已经安装过了），其他都是选择默认。
 
 如果没有出错的话，会显示：
 
@@ -204,9 +221,12 @@ pip换源之后速度真的是非常舒爽...
 	sudo apt-get install build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libtiff5-dev libdc1394-22-dev libatlas-base-dev gfortran
 
 
-
 # 安装openblas
-这是一个科学计算库   
+这是一个科学计算库
+此步是为caffe提供数学计算库，caffe允许使用的科学计算库有ATLAS、OpenBlas和atlas。
+如果你希望简单快速安装，可以选择使用atlas就好，atlas安装较为容易，一行命令就能搞定，那就自动忽略这一段。
+如果你喜欢折腾，可以试试安装openblas，下载安装配置过程较为复杂。
+
 **下载**   
 可以到 [https://github.com/xianyi/OpenBLAS/releases](https://github.com/xianyi/OpenBLAS/releases) 下载你喜欢的版本解压到指定目录，也可以直接git clone   
 **安装依赖项**     
@@ -227,7 +247,46 @@ pip换源之后速度真的是非常舒爽...
 
 输入：
 
-==**等待编辑**==
+	#include <stdio.h>
+	#include <stdlib.h>
+	#include "cblas.h"
+
+	int main(){
+
+			int n;                          /*! array size */
+			double da;                      /*! double constant */
+			double *dx;                     /*! input double array */
+			int incx;                        /*! input stride */
+			double *dy;                      /*! output double array */
+			int incy;                       /*! output stride */
+
+			int i;
+
+			n = 10;
+			da = 10;
+			dx = (double*)malloc(sizeof(double)*n);
+			incx = 1;
+			dy = (double*)malloc(sizeof(double)*n);
+			incy = 1;
+
+			for(i=0;i<n;i++){
+					dx[i] = 9-i;
+					dy[i] = i;
+					printf("%f ",dy[i]);    //输出原来的dy
+			}
+			printf("\n");
+
+			cblas_daxpy(n, da, dx,incx, dy, incy);  //运行daxpy程序
+		//    cblas_dcopy(n, dx,incx, dy, incy);      //运行dcopy程序
+
+			for(i=0;i<n;i++){
+				printf("%f ",dy[i]);   //输出计算后的dy
+			}
+			printf("\n");
+
+			return 0;   
+	}
+	
 
 执行：
 
@@ -238,22 +297,31 @@ pip换源之后速度真的是非常舒爽...
 
 	a.out
 	
-结果如下
+结果如下即说明安装成功
 
 > 0.000000 1.000000 2.000000 3.000000 4.000000 5.000000 6.000000 7.000000 8.000000 9.000000 
 90.000000 81.000000 72.000000 63.000000 54.000000 45.000000 36.000000 27.000000 18.000000 9.000000
 
 
-# 安装caffe-ssd
-以上全部安装完成后，我们开始安装caffe-ssd   
-**下载**   
-下载caffe-ssd源码  [github caffe-ssd地址](https://github.com/weiliu89/caffe/tree/ssd)   
-下载caffe源码  [github caffe地址](https://github.com/BVLC/caffe)     
+# 安装caffe/caffe-ssd
+以上全部安装完成后，我们开始安装caffe/caffe-ssd。   
+由于caffe-ssd基于caffe增加了部分层，含有caffe的全部功能，因此我们直接安装caffe-ssd就好。
+
+**下载**
+
+官方源码：   
+caffe-ssd源码  [github caffe-ssd地址](https://github.com/weiliu89/caffe/tree/ssd)   
+caffe源码  [github caffe地址](https://github.com/BVLC/caffe)     
+但是这些在安装过程中可能会出现一些问题，需要修改源码，我在安装的时候，已经把某些需要修改的源码进行了修正，可以在此处下载：
+[https://github.com/weidi1024/caffe-ssd-correct](https://github.com/weidi1024/caffe-ssd-correct)
+
 
 **修改Makefile.config**   
 下载解压后进入caffe-ssd文件夹    
 官方的说明是 cp Makefile.config.example Makefile.config 然后修改内容。    
-这里我已经修改好了，修改好的Makefile.config，直接拷贝到caffe-ssd中即可。    
+这里我已经把需要修改的部分修改好了，直接进行下一步即可。
+如果下载的是我提供的修改后的caffe-ssd源码。
+
 
 关于opencv版本：    
 Makefile.config中第23行
@@ -263,10 +331,10 @@ Makefile.config中第23行
 
 	pkg-config opencv --modversion
 
-如果是3.x的话，需要将Makefile.config中第23前面的注释#去掉。
+如果是3.x的话，需要将Makefile.config中第23行前面的注释#去掉。
 
 **拷贝文件**   
-将caffe中关于cudnn的文件全部拷贝到caffe-ssd的相应文件夹中中，因为caffe-ssd中的caffe版本太老，直接安装会出错。
+将caffe中关于cudnn的文件全部拷贝到caffe-ssd的相应文件夹中中，因为caffe-ssd中的caffe版本太老，直接安装会出错。如果直接安装caffe-ssd，可以忽略这一步。
 
 **开始编译**
 
@@ -397,15 +465,19 @@ Makefile.config中第23行
 
     sudo pip install tensorflow-gpu==1.13.0
 
-附：安装tensorflow需要的cuda以及cudnn版本可进入官网查询    
+此处的1.13.0即为指定版本号，tensorflow的版本号，与cuda和cudnn版本的关系可进入官网查询    
 地址：[从源代码编译  |  TensorFlow](https://tensorflow.google.cn/install/source)    
 页面最下方即可查看版本依赖关系   
+下表为部分
+
 
 | 版本      | Python 版本|  编译器| 编译工具| cuDNN | CUDA |
 | --------- | -------- | -----: | --: | --: | --: |
 | tensorflow_gpu-1.13.0 | 2.7、3.3-3.6 | GCC 4.8 | Bazel 0.19.2 | 7.4 | 10.0 |
 | tensorflow_gpu-1.12.0 | 2.7、3.3-3.6 | GCC 4.8 | Bazel 0.15.0 | 7 | 9 |
 
+
+如果出现错误解决不了，可以直接将关键错误提示进行百度谷歌，大部分情况都能查到，大家有可能会都遇到过你遇到的问题。
 
 # 安装 MXNet 1.4.0
 由于我安装的是cuda10.0，因此使用如下命令安装
@@ -437,41 +509,73 @@ Makefile.config中第23行
 参考: [解决Ubuntu“下载额外数据文件失败  ttf-mscorefonts-installer的问题_博客园](https://www.cnblogs.com/bfhxt/p/9967039.html)
 # 安装 MATLAB R2017b
 
-**安装**   
-进入matlab文件夹，执行：
+**安装**  
+下载Linux版本Matlab之后， 
+进入含有iso文件的文件夹，执行：
+注意将第二个代码里面的R2017b改成你下载的版本。
 
 	sudo mkdir /media/matlab
 	sudo mount -o loop ./R2017b_glnxa64_dvd1.iso /media/matlab
 	sudo /media/matlab/install
 
 Install choosing the option "Use a File Installation Key" and supply the following FIK
+使用你的Crack文件夹里面的readme里面的激活码
+2017b版本的应该是09806-07443-53955-64350-21751-41297
 
-当提示需要挂载第二个盘时，先退出第一个盘，可在ubuntu18.04桌面找到matlab挂载的文件，点击右键取消挂载，然后挂载第二个盘：
+当提示需要挂载第二个盘时，需要先退掉第一个盘，然后挂载第二个盘：   
+退掉第一个盘：可以通过文件管理器退出第一个盘，也可在ubuntu18.04桌面找到matlab挂载的文件，点击右键取消挂载；   
+挂载第二个盘：注意将第二个代码里面的R2017b改成你下载的版本   
 
     sudo mount -o loop ./R2017b_glnxa64_dvd2.iso /media/matlab
 
 
-**激活**   
-	cd /usr/local/MATLAB/R2016b/bin
-	sudo ./matlab
+**激活**  
+ 
+	sudo /usr/local/MATLAB/R2016b/bin/matlab
 
-进入crack下R2017b/bin/glnxa64拷贝文件
-
+选择Crack文件夹下的 license_standalone.lic   
+当然也可以直接拷贝证书文件
+	
 	sudo cp license_standalone.lic /usr/local/MATLAB/R2017b/licenses/
+
+进入到crack下的R2017b/bin/glnxa64/文件夹，拷贝文件
+
 	sudo cp libmwservices.so /usr/local/MATLAB/R2017b/bin/glnxa64/
 
-**任意位置终端打开matlab**   
+**实现任意位置终端打开matlab**   
 在目录/usr/local/bin里面创建一个指向Matlab安装目录/usr/local/MATLAB/R2017b/bin的符号链接：（非默认安装需替换安装路径）
 
 	sudo ln -s /usr/local/MATLAB/R2017b/bin/matlab /usr/local/bin/matlab
-
-现在在任何位置都可以打开MATLAB
+	sudo chmod a+w -R ~/.matlab
+	
+现在在任何位置打开终端都可以打开MATLAB
 
 	matlab
 
+**创建桌面快捷方式**   
 
-**其他**   
-如果出现权限问题，执行如下命令
+	sudo gedit /usr/share/applications/Matlab.desktop
 
-	sudo chmod a+w -R ~/.matlab
+写入
 
+	[Desktop Entry]
+	Version=1.0
+	Type=Application
+	Terminal=false
+	Exec=/usr/local/MATLAB/R2017b/bin/matlab -desktop
+	Name=MATLAB
+	Icon=/usr/local/MATLAB/R2017b/toolbox/nnet/nnresource/icons/matlab.png
+	Categories=Math;Science
+	Comment=Scientific computing environment
+	StartupNotify=true
+	StartupWMClass=com-mathworks-util-PostVMInit
+
+桌面会出现图标，如果没有出现，可以将/usr/share/applications/Matlab.desktop直接拷贝到桌面
+然后解决权限问题
+
+	sudo chmod a+w -R /usr/share/applications/Matlab.desktop
+	sudo chmod a+w -R ~/桌面/Matlab.desktop
+	
+至此，Matlab安装完成，尽情使用吧！
+
+如果感觉我写的教程能帮助到你，欢迎在github上star
