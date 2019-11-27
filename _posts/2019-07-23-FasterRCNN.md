@@ -70,7 +70,7 @@ R-CNN的方法端到端地训练CNN，将候选区域分为目标或者背景类
 然而，我们的方法实现了边框回归，与其他方法不同[1] [2] 。[1]中，bbox回归通过在池化的特征上进行回归，并且不同尺寸的区域回归的权重相同。我们的方案中，用于回归的特征具有相同的尺寸，3x3。为了实现不同的尺寸，我们设置了k个bbox回归器。每一个回归器负责一种尺寸一种纵横比的bbox，k个回归器不共享参数。尽管使用相同尺寸的特征，预测不同尺寸的bbox还是有可能的，这要归功于anchors的设计。 所有anchor的损失函数可训练，但这样使得网络偏向于负样本，
 
 **3.1.3  Training RPNs**   
-（训练细节）RPN可以使用SGD进行端到端训练。每一个minibatch来自于一幅包含许多正负anchor的样本，但是这样会导致网络会偏向于负样本。因此我们随机选择256个anchors来计算损失函数，其中正负样本的比例为1:1。==如果一个图像中有少于128个正样本，我们用负样本填充。==  
+（训练细节）RPN可以使用SGD进行端到端训练。每一个minibatch来自于一幅包含许多正负anchor的样本，但是这样会导致网络会偏向于负样本。**因此我们随机选择256个anchors来计算损失函数，其中正负样本的比例为1:1。** ==如果一个图像中有少于128个正样本，我们用负样本填充。==  
 随机初始化，加载预训练模型，学习率的设置等。使用caffe。这部分就不详细翻译了。   
 
 **3.2 RPN与Fast R-CNN共享特征**  
@@ -104,3 +104,18 @@ RPN和Fast R-CNN可以独立训练，那么会使得卷积层的学习往不同�
 
 
 # 5 结论
+
+# 一些细节    
+fastrcnn如何保证训练过程中正负样本的均衡性？    
+
+**1 RPN ：**       
+**我们随机选择256个anchors来计算损失函数，其中正负样本的比例为1:1。**      
+REFERENCE:    Faster R-CNN in Sec3.1.3    
+
+**2 Faster R-CNN**      
+**每次随机选择2幅图像，并从每幅图像对应的RoIs中选择64个RoIs，一共选择128个RoIs，具体方法为：其中选择前景(与GroundTruth的IOU大于0.5的RoIs）的25%作为训练使用的前景RoIs，剩下的RoIs从背景（与GroundTruth的IOU大于0.1小于0.5的RoIs）里面选择，作为训练使用的背景RoIS**    
+REFERENCE:    Fast R-CNN in Sec2.3 Mini-batch sampling     
+During fine-tuning, each SGD mini-batch is constructed from N = 2 images, chosen uniformly at random (as is common practice, we actually iterate over permutations of the dataset). We use mini-batches of size R = 128, sampling 64 RoIs from each image. As in R-CNN, we take 25% of the RoIs from object proposals that have intersection over union (IoU) overlap with a groundtruth bounding box of at least 0.5. These RoIs  comprise the examples labeled with a foreground object class, i.e. u ≥ 1. The remaining RoIs are sampled from object proposals that have a maximum IoU with ground truth in the interval [0.1: 0.5), following [11]. These are the background examples and are labeled with u = 0. The lower threshold of 0.1 appears to act as a heuristic for hard example mining [8]. During training, images are horizontally flipped with probability 0:5. No other data augmentation is used.    
+
+实现过程较为简单粗暴，现在有一些较为新颖的方法比如OHEM、focal loss等
+
