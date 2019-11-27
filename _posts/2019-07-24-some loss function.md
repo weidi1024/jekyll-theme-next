@@ -1,8 +1,8 @@
 ---
 title: 机器学习中的一些损失函数
 date: 2019-07-24 22:00:00
-categories: 机器学习
-tags: 机器学习
+categories: Machine Learning
+tags: Machine_Learning
 mathjax: true
 ---
 
