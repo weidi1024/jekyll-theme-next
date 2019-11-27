@@ -9,7 +9,8 @@ mathjax: true
 	sudo add-apt-repository ppa:jonathonf/python-3.6
 	sudo apt-get update
 	sudo apt-get install python3.6
-
+	sudo apt install python3-pip
+	
 调整优先级
 
 	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1
