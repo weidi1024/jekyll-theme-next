@@ -104,6 +104,9 @@ RPN和Fast R-CNN可以独立训练，那么会使得卷积层的学习往不同�
 
 
 # 5 结论
+略
+
+
 
 # 一些细节    
 fastrcnn如何保证训练过程中正负样本的均衡性？    
@@ -114,7 +117,7 @@ REFERENCE:    Faster R-CNN in Sec3.1.3
 
 **2 Faster R-CNN**      
 **每次随机选择2幅图像，并从每幅图像对应的RoIs中选择64个RoIs，一共选择128个RoIs，具体方法为：其中选择前景(与GroundTruth的IOU大于0.5的RoIs）的25%作为训练使用的前景RoIs，剩下的RoIs从背景（与GroundTruth的IOU大于0.1小于0.5的RoIs）里面选择，作为训练使用的背景RoIS**    
-REFERENCE:    Fast R-CNN in Sec2.3 Mini-batch sampling     
+**REFERENCE**:       Fast R-CNN in Sec2.3 Mini-batch sampling     
 During fine-tuning, each SGD mini-batch is constructed from N = 2 images, chosen uniformly at random (as is common practice, we actually iterate over permutations of the dataset). We use mini-batches of size R = 128, sampling 64 RoIs from each image. As in R-CNN, we take 25% of the RoIs from object proposals that have intersection over union (IoU) overlap with a groundtruth bounding box of at least 0.5. These RoIs  comprise the examples labeled with a foreground object class, i.e. u ≥ 1. The remaining RoIs are sampled from object proposals that have a maximum IoU with ground truth in the interval [0.1: 0.5), following [11]. These are the background examples and are labeled with u = 0. The lower threshold of 0.1 appears to act as a heuristic for hard example mining [8]. During training, images are horizontally flipped with probability 0:5. No other data augmentation is used.    
 
 实现过程较为简单粗暴，现在有一些较为新颖的方法比如OHEM、focal loss等
