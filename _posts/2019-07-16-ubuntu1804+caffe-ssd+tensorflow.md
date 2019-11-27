@@ -1,8 +1,8 @@
 ---
-title: 安装Ubuntu18.04 caffe tensorflow mxnet等
+title: 安装Ubuntu18.04 caffe tensorflow mxnet pytorch等
 date: 2019-07-16 22:00:00
 categories: Ubuntu
-tags: Ubuntu 实验室 caffe tensorflow mxnet
+tags: Ubuntu 实验室 caffe tensorflow mxnet pytorch
 mathjax: false
 ---
 
@@ -208,6 +208,7 @@ CUDA版本与nvidia显卡驱动版本之间的关系为：[Release Notes :: CUDA
 	
 对，直接拷贝过去就可以了
 
+**如果不安装caffe，那安装openblas、安装相关依赖项、安装caffe/caffe-ssd这三步可以跳过**
 
 # 安装openblas(非必须)
 注：这是一个科学计算库    
