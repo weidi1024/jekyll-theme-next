@@ -12,9 +12,9 @@ mathjax: true
 于是我们对pip换国内源，在机器上直接pip install 也能有不错的速度。   
 但是现在有可能会出现一些原因需要下载安装包离线安装   
 比如我想离线下载这个包    
-tensorflow-1.15.0-cp36-cp36m-manylinux2010_x86_64.whl
-使用换过国内源的电脑下载
-pip下载第三方包：
+tensorflow-1.15.0-cp36-cp36m-manylinux2010_x86_64.whl    
+使用换过国内源的电脑下载    
+pip下载第三方包：    
 
 	pip download <包名> -d "下载的路径(windows下双引号来表示文件夹)"
 
