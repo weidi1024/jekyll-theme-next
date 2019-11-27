@@ -18,9 +18,8 @@ Disk：256 GB + 2TB
 
 # 安装系统
 **下载系统镜像**  
-Ubuntu桌面版下载地址：[Download Ubuntu Desktop | Download | Ubuntu](https://ubuntu.com/download/desktop) （此网址为最新版的下载地址） 
-我下载的是 Ubuntu 18.04 LTS：[ubuntu-18.04.2-desktop-amd64.iso](http://releases.ubuntu.com/18.04.2/ubuntu-18.04.2-desktop-amd64.iso?_ga=2.29690233.792768982.1563462256-1758338699.1562838306)    
-
+Ubuntu桌面版下载地址：[Download Ubuntu Desktop | Download | Ubuntu](https://ubuntu.com/download/desktop) （此网址为最新版的下载地址）     
+我下载的是 Ubuntu 18.04 LTS：[ubuntu-18.04.2-desktop-amd64.iso](http://releases.ubuntu.com/18.04.2/ubuntu-18.04.2-desktop-amd64.iso?_ga=2.29690233.792768982.1563462256-1758338699.1562838306)     
 注：本文需要下载的所有文件，我都已经下载好，放在了~/WD/download文件件内。
 
 **安装系统到电脑**   
@@ -53,7 +52,7 @@ ubuntu软件-下载自-进入修改为国内的地址，比如aliyun的
 
 # pip
 **安装pip**   
-pip是python包的管理
+pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。    
 
 	sudo apt-get install python-pip python-dev build-essential
 	pip install --upgrade pip
@@ -63,7 +62,7 @@ pip是python包的管理
 修改 ~/.pip/pip.conf (没有就创建一个)， 如下：
 
 	mkdir ~/.pip/
-	geidt ~/.pip/pip.conf
+	gedit ~/.pip/pip.conf
 	
 输入如下内容并保存
 
@@ -95,9 +94,10 @@ pip换源之后速度真的是非常舒爽...
 	sudo update-initramfs -u
 
 **开始安装**   
-Ctrl Alt F1进入命令行
-登录
-执行下面命令
+Ctrl Alt F1进入命令行   
+登录   
+执行下面命令   
+
 	sudo service lightdm stop
 	
 cd到显卡驱动的位置，开始安装
@@ -111,8 +111,8 @@ cd到显卡驱动的位置，开始安装
 
 	sudo service lightdm start
 
-Ctrl Alt F7进入图像界面
-按理说需要登录，进入桌面后执行(查看nvidia信息）
+Ctrl Alt F7进入图像界面   
+按理说需要登录，进入桌面后执行(查看nvidia信息）   
 
 	nvidia-smi
 	
@@ -126,7 +126,8 @@ Ctrl Alt F7进入图像界面
 如果需要下载历史版本，点击页面Legacy Releases按钮选择进行下载    
 推荐下载格式为runfile(local)版本，安装起来较为方便    
 CUDA版本与nvidia显卡驱动版本之间的关系为：[Release Notes :: CUDA Toolkit Documentation](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html)    
-里面有个 Table 1. CUDA Toolkit and Compatible Driver Versions
+里面有个 Table 1. CUDA Toolkit and Compatible Driver Versions   
+一般情况下，只要你下载的都是最新版，那就符合版本要求
 
 **开始安装**   
 下载好之后在安装包所在路径打开终端，执行以下命令进行安装：
@@ -302,7 +303,6 @@ CUDA版本与nvidia显卡驱动版本之间的关系为：[Release Notes :: CUDA
 由于caffe-ssd基于caffe增加了部分层，含有caffe的全部功能，因此我们直接安装caffe-ssd就好。
 
 **下载**
-
 官方源码：   
 caffe-ssd源码  [github caffe-ssd地址](https://github.com/weiliu89/caffe/tree/ssd)   
 caffe源码  [github caffe地址](https://github.com/BVLC/caffe)     
@@ -313,9 +313,7 @@ caffe源码  [github caffe地址](https://github.com/BVLC/caffe)
 **修改Makefile.config**   
 下载解压后进入caffe-ssd文件夹    
 官方的说明是 cp Makefile.config.example Makefile.config 然后修改内容。    
-这里我已经把需要修改的部分修改好了，直接进行下一步即可。
-如果下载的是我提供的修改后的caffe-ssd源码。
-
+如果下载的是我提供的修改后的caffe-ssd源码，我已经把需要修改的部分修改好了，直接进行下一步即可。
 
 关于opencv版本：    
 Makefile.config中第23行
@@ -328,7 +326,8 @@ Makefile.config中第23行
 如果是3.x的话，需要将Makefile.config中第23行前面的注释#去掉。
 
 **拷贝文件**   
-将caffe中关于cudnn的文件全部拷贝到caffe-ssd的相应文件夹中中，因为caffe-ssd中的caffe版本太老，直接安装会出错。如果直接安装caffe-ssd，可以忽略这一步。
+将caffe中关于cudnn的文件全部拷贝到caffe-ssd的相应文件夹中中，因为caffe-ssd中的caffe版本太老，直接安装会出错。   
+如果下载的是我提供的修改后的caffe-ssd源码，我已经把需要修改的部分修改好了，直接进行下一步即可。
 
 **开始编译**
 
@@ -513,24 +512,26 @@ tensorflow mxnet 和 pytoch的安装真的是超级方便
 将下载的文件解压放到/usr/share/package-data-downloads中，然后手动在命令行执行sudo dpkg-reconfigure ttf-mscorefonts-installer这条语句手动指定文件夹的位置,重新配置下。   
 
 参考: [解决Ubuntu“下载额外数据文件失败  ttf-mscorefonts-installer的问题_博客园](https://www.cnblogs.com/bfhxt/p/9967039.html)
-# 安装 MATLAB R2017b
 
-**安装**  
+
+# 安装 MATLAB R2017b   
+**安装**   
 下载Linux版本Matlab之后， 
-进入含有iso文件的文件夹，执行：
-注意将第二个代码里面的R2017b改成你下载的版本。
+进入含有iso文件的文件夹，执行：    
+注意：将第二行代码里面的R2017b改成你自己的版本。
 
 	sudo mkdir /media/matlab
 	sudo mount -o loop ./R2017b_glnxa64_dvd1.iso /media/matlab
 	sudo /media/matlab/install
 
-Install choosing the option "Use a File Installation Key" and supply the following FIK
-使用你的Crack文件夹里面的readme里面的激活码
-2017b版本的应该是09806-07443-53955-64350-21751-41297
+Install choosing the option "Use a File Installation Key" and supply the following FIK    
+使用你的Crack文件夹里面的readme里面的激活码    
+2017b版本的应该是09806-07443-53955-64350-21751-41297    
 
 当提示需要挂载第二个盘时，需要先退掉第一个盘，然后挂载第二个盘：   
 退掉第一个盘：可以通过文件管理器退出第一个盘，也可在ubuntu18.04桌面找到matlab挂载的文件，点击右键取消挂载；   
-挂载第二个盘：注意将第二个代码里面的R2017b改成你下载的版本   
+挂载第二个盘：代码如下，注意将第二个代码里面的R2017b改成你下载的版本   
+进入含有iso文件的文件夹，执行：
 
     sudo mount -o loop ./R2017b_glnxa64_dvd2.iso /media/matlab
 
@@ -562,7 +563,7 @@ Install choosing the option "Use a File Installation Key" and supply the followi
 
 	sudo gedit /usr/share/applications/Matlab.desktop
 
-写入
+写入(注意将第5和第7行里面的Matlab版本换成你自己的版本)
 
 	[Desktop Entry]
 	Version=1.0
@@ -584,4 +585,4 @@ Install choosing the option "Use a File Installation Key" and supply the followi
 	
 至此，Matlab安装完成，尽情使用吧！
 
-如果感觉我写的教程能帮助到你，欢迎在github上star
+如果觉得我写的教程能帮助到你，欢迎在[github](https://github.com/weidi1024/weidi1024.github.io)上star
