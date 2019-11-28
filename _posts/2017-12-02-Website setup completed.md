@@ -1,7 +1,7 @@
 ---
 title: 搭建完成
 date: 2017-12-02 16:23:16
-categories: Build Blog
+categories: Build_Blog
 tags: Build_Blog
 ---
 
