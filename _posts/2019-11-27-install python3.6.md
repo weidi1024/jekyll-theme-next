@@ -1,5 +1,5 @@
 ---
-title: 安装python3.5
+title: 安装python3.6
 date: 2019-11-27 22:00:00
 categories: Ubuntu
 tags: Ubuntu
